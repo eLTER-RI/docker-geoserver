@@ -3,7 +3,9 @@ volumes:
    settings:
 services:
   geoserver-prod:
-    image: kartoza/geoserver:${GS_VERSION}
+    env_file:
+      - .env
+    image: local/geoserver:${GS_VERSION}-elter-1
     volumes:
       - geoserver-data:/opt/geoserver/data_dir
       - settings:/settings
